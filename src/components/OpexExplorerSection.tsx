@@ -3,6 +3,7 @@ import {
   OPEX_SUMMARY_TABLE,
   LABOR_BREAKDOWN,
   UTILITIES_AND_MAINTENANCE_DETAIL,
+  PROJECT_METADATA,
 } from '../data/bazicoProjectData';
 import { Download, Search, Users, Wrench, FileSpreadsheet } from 'lucide-react';
 
@@ -51,7 +52,12 @@ export const OpexExplorerSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 border-b border-slate-200">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-800 mb-3">
+            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-emerald-800 mb-3">
+              <img
+                src={PROJECT_METADATA.logoUrl}
+                alt="BAZICO"
+                className="h-6 w-auto object-contain rounded bg-white p-0.5 border border-slate-200 shadow-2xs"
+              />
               <span>04. Auditoria Operacional (OPEX)</span>
               <span aria-hidden="true">·</span>
               <span>Seções 4.2, 4.3 e 4.4 (Páginas 25 a 27)</span>

@@ -79,6 +79,7 @@ export interface PitchSlide {
 
 export const PROJECT_METADATA = {
   company: 'BAZICO TECNOLOGIA E CONSULTORIA LTDA',
+  logoUrl: '/assets/bazico-logo.jpg',
   projectTitle: 'Implantação de Planta de Tratamento de Resíduos Orgânicos — Produção de Biogás, Biometano e Fertilizantes Classe "A"',
   capacityLabel: '280 Toneladas / Dia',
   ceo: 'Lytton Medrado',

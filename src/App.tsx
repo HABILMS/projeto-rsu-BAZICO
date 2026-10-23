@@ -52,12 +52,17 @@ export function App() {
       {/* STRICT 3-ZONE TOP BAR CONTRACT */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-xs border-b border-slate-200 no-print">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-8 px-6 py-4">
-          {/* Zone 1: Brand Title, One Line */}
+          {/* Zone 1: Brand Title with Official Logo */}
           <a
             href="#topo"
-            className="text-lg font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0"
+            className="flex items-center gap-3 text-lg font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0 group"
           >
-            BAZICO Tecnologia
+            <img
+              src={PROJECT_METADATA.logoUrl}
+              alt="BAZICO Tecnologia"
+              className="h-9 w-auto object-contain rounded-md shadow-2xs group-hover:scale-105 transition-transform"
+            />
+            <span className="font-display">BAZICO Tecnologia</span>
           </a>
 
           {/* Zone 2: 5 Single-Line Navigation Links */}
@@ -112,17 +117,24 @@ export function App() {
         {/* HERO SECTION — INVESTOR MEMORANDUM & EXECUTIVE VIABILITY STUDY */}
         <section id="tese" className="py-16 lg:py-24 bg-slate-950 text-white border-b border-slate-800">
           <div className="max-w-7xl mx-auto px-6">
-            {/* Unboxed Metadata Bar with Typographic Separators */}
-            <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400 mb-6">
-              <span className="text-emerald-400 font-semibold">MEMORANDO DE VIABILIDADE ECONÔMICA</span>
-              <span aria-hidden="true">·</span>
-              <span>BAZICO TECNOLOGIA E CONSULTORIA LTDA</span>
-              <span aria-hidden="true">·</span>
-              <span>MM ENVIRO PROJECTS PVT. LTD.</span>
-              <span aria-hidden="true">·</span>
-              <span>JG SETTE</span>
-              <span aria-hidden="true">·</span>
-              <span>OUTUBRO 2026</span>
+            {/* Unboxed Metadata Bar with Typographic Separators & Official Logo */}
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-400 mb-8 pb-4 border-b border-slate-800/80">
+              <img
+                src={PROJECT_METADATA.logoUrl}
+                alt="Logo BAZICO"
+                className="h-10 w-auto object-contain rounded-md bg-white p-1 shadow-sm"
+              />
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-emerald-400 font-semibold">MEMORANDO DE VIABILIDADE ECONÔMICA</span>
+                <span aria-hidden="true">·</span>
+                <span>BAZICO TECNOLOGIA E CONSULTORIA LTDA</span>
+                <span aria-hidden="true">·</span>
+                <span>MM ENVIRO PROJECTS PVT. LTD.</span>
+                <span aria-hidden="true">·</span>
+                <span>JG SETTE</span>
+                <span aria-hidden="true">·</span>
+                <span>OUTUBRO 2026</span>
+              </div>
             </div>
 
             {/* 2-Column Split with items-stretch */}
@@ -208,10 +220,17 @@ export function App() {
               <div className="lg:col-span-5 bg-slate-900 rounded-2xl p-7 border border-slate-800 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-                    <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
-                      Quadro Resumo de Viabilidade (Seção 4.4)
-                    </span>
-                    <span className="text-xs font-mono text-slate-400">Horizonte: 25 Anos</span>
+                    <div className="flex items-center gap-2.5">
+                      <img
+                        src={PROJECT_METADATA.logoUrl}
+                        alt="BAZICO"
+                        className="h-6 w-auto object-contain rounded bg-white p-0.5 shadow-2xs"
+                      />
+                      <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                        Quadro Resumo de Viabilidade
+                      </span>
+                    </div>
+                    <span className="text-xs font-mono text-slate-400">25 Anos</span>
                   </div>
 
                   <div className="mt-6 grid grid-cols-2 gap-5">
@@ -380,8 +399,15 @@ export function App() {
                 </div>
 
                 <div className="bg-slate-900 text-white p-6 rounded-xl border border-slate-800">
-                  <div className="text-xs font-mono uppercase text-emerald-400 font-semibold">
-                    Solução Definitiva BAZICO
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="text-xs font-mono uppercase text-emerald-400 font-semibold">
+                      Solução Definitiva BAZICO
+                    </div>
+                    <img
+                      src={PROJECT_METADATA.logoUrl}
+                      alt="BAZICO"
+                      className="h-6 w-auto object-contain rounded bg-white p-0.5 shadow-2xs"
+                    />
                   </div>
                   <h3 className="text-lg font-bold text-white mt-1">
                     Biodigestão Anaeróbia CSTR
@@ -496,7 +522,12 @@ export function App() {
         <section id="credenciais" className="py-20 bg-slate-900 text-white border-b border-slate-800">
           <div className="max-w-7xl mx-auto px-6">
             <div className="pb-10 border-b border-slate-800">
-              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-400 mb-3">
+              <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-emerald-400 mb-3">
+                <img
+                  src={PROJECT_METADATA.logoUrl}
+                  alt="BAZICO"
+                  className="h-6 w-auto object-contain rounded bg-white p-0.5 shadow-2xs"
+                />
                 <span>05. Track Record Global & Certificados</span>
                 <span aria-hidden="true">·</span>
                 <span>Operação Comprovada em 22 Países</span>
@@ -613,8 +644,20 @@ export function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-10 border-b border-slate-800">
             <div className="lg:col-span-6">
-              <div className="text-xl font-bold text-white tracking-tight">
-                {PROJECT_METADATA.company}
+              <div className="flex items-center gap-4 mb-4">
+                <img
+                  src={PROJECT_METADATA.logoUrl}
+                  alt="BAZICO"
+                  className="h-12 w-auto object-contain rounded-lg bg-white p-1 shadow-md"
+                />
+                <div>
+                  <div className="text-xl font-bold text-white tracking-tight">
+                    {PROJECT_METADATA.company}
+                  </div>
+                  <div className="text-xs text-emerald-400 font-mono">
+                    Engenharia, Biotecnologia & Transição Energética
+                  </div>
+                </div>
               </div>
               <p className="text-sm text-slate-400 mt-2 max-w-md leading-relaxed">
                 Proposta Executiva para Implantação de Planta de Tratamento de Resíduos Orgânicos (280

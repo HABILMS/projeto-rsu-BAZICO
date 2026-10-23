@@ -43,13 +43,20 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
     <div className="fixed inset-0 z-50 bg-slate-950/95 text-white flex flex-col justify-between overflow-y-auto">
       {/* Top Modal Header */}
       <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-slate-800 bg-slate-900">
-        <div className="flex items-center gap-4">
-          <span className="text-sm font-bold tracking-tight text-white">
-            BAZICO · Pitch Deck Executivo para Investidores
-          </span>
-          <span className="text-xs font-mono text-slate-400">
-            Slide {currentIndex + 1} de {PITCH_SLIDES.length} · Use as setas ← → do teclado
-          </span>
+        <div className="flex items-center gap-3">
+          <img
+            src={PROJECT_METADATA.logoUrl}
+            alt="BAZICO"
+            className="h-8 w-auto object-contain rounded bg-white p-0.5 shadow-2xs shrink-0"
+          />
+          <div>
+            <span className="text-sm font-bold tracking-tight text-white block">
+              BAZICO · Pitch Deck Executivo para Investidores
+            </span>
+            <span className="text-xs font-mono text-slate-400 block">
+              Slide {currentIndex + 1} de {PITCH_SLIDES.length} · Use as setas ← → do teclado
+            </span>
+          </div>
         </div>
 
         <div className="flex items-center gap-2">
@@ -122,7 +129,14 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
         ) : (
           <div className="bg-slate-900 rounded-2xl border border-slate-800 p-8 lg:p-12 shadow-2xl">
             <div className="flex items-center justify-between text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4">
-              <span>{slide.sectionCode}</span>
+              <div className="flex items-center gap-2.5">
+                <img
+                  src={PROJECT_METADATA.logoUrl}
+                  alt="BAZICO"
+                  className="h-5 w-auto object-contain rounded bg-white p-0.5 shadow-2xs"
+                />
+                <span>{slide.sectionCode}</span>
+              </div>
               <span className="text-slate-400">{slide.originalPages}</span>
             </div>
 
