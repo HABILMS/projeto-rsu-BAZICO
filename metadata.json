@@ -1,0 +1,6 @@
+{
+  "name": "BAZICO — Viabilidade Econômica: Planta de Biogás, Biometano e Fertilizantes",
+  "description": "Apresentação executiva interativa e modelagem financeira para implantação de planta de tratamento de resíduos orgânicos (280 ton/dia) para produção de biometano e fertilizantes orgânicos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
