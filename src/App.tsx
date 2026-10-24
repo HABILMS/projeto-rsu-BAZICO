@@ -11,10 +11,12 @@ import { InteractivePlantBlueprint } from './components/InteractivePlantBlueprin
 import { FinancialSimulatorSection } from './components/FinancialSimulatorSection';
 import { OpexExplorerSection } from './components/OpexExplorerSection';
 import { PitchDeckModal } from './components/PitchDeckModal';
+import { CommercialPresentationModal } from './components/CommercialPresentationModal';
 import {
   Presentation,
   ArrowUpRight,
   FileText,
+  FileDown,
   Printer,
   CheckCircle2,
   Building2,
@@ -25,6 +27,7 @@ import {
 
 export function App() {
   const [isPitchModeOpen, setIsPitchModeOpen] = useState<boolean>(false);
+  const [isCommercialDeckOpen, setIsCommercialDeckOpen] = useState<boolean>(false);
   const [selectedSector, setSelectedSector] = useState<string>('Todos');
 
   const generatorSectors = [
@@ -99,15 +102,25 @@ export function App() {
             </a>
           </nav>
 
-          {/* Zone 3: 1 Primary Action */}
-          <div className="flex items-center shrink-0">
+          {/* Zone 3: Primary Actions */}
+          <div className="flex items-center gap-2.5 shrink-0">
+            <button
+              type="button"
+              onClick={() => setIsCommercialDeckOpen(true)}
+              className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-white bg-emerald-700 rounded-lg hover:bg-emerald-600 transition-colors whitespace-nowrap shrink-0 cursor-pointer shadow-xs"
+              title="Apresentação Comercial da empresa e tecnologia (sem dados financeiros)"
+            >
+              <FileDown className="w-4 h-4 text-emerald-200" />
+              <span>Apresentação Comercial (PDF)</span>
+            </button>
+
             <button
               type="button"
               onClick={() => setIsPitchModeOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-emerald-800 rounded-lg hover:bg-emerald-700 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-white bg-slate-900 border border-slate-700 rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
-              <Presentation className="w-4 h-4" />
-              Modo Apresentação
+              <Presentation className="w-4 h-4 text-emerald-400" />
+              <span>Pitch Deck</span>
             </button>
           </div>
         </div>
@@ -181,18 +194,28 @@ export function App() {
                 <div className="mt-8 pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-3 no-print">
                   <button
                     type="button"
-                    onClick={() => setIsPitchModeOpen(true)}
-                    className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-slate-950 bg-emerald-400 rounded-lg hover:bg-emerald-300 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                    onClick={() => setIsCommercialDeckOpen(true)}
+                    className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-slate-950 bg-emerald-400 rounded-lg hover:bg-emerald-300 transition-colors whitespace-nowrap shrink-0 cursor-pointer shadow-md"
+                    title="Abre a Apresentação Comercial completa sem dados financeiros pronta para gerar PDF"
                   >
-                    <Presentation className="w-4 h-4" />
-                    Iniciar Pitch Deck (6 Slides Executivos)
+                    <FileDown className="w-4 h-4" />
+                    <span>Gerar Apresentação Comercial em PDF</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsPitchModeOpen(true)}
+                    className="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-white bg-slate-900 border border-slate-700 rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    <Presentation className="w-4 h-4 text-emerald-400" />
+                    Pitch Deck (Investidores)
                   </button>
 
                   <a
                     href="#financeiro"
-                    className="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-white bg-slate-900 border border-slate-700 rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0"
+                    className="inline-flex items-center gap-2 px-4 py-3 text-sm font-medium text-slate-300 bg-slate-900/80 border border-slate-800 rounded-lg hover:bg-slate-800 hover:text-white transition-colors whitespace-nowrap shrink-0"
                   >
-                    Simulador Financeiro (25 Anos)
+                    Simulador Financeiro
                   </a>
 
                   <a
@@ -697,6 +720,15 @@ export function App() {
                 Arquivos & Auditoria
               </div>
               <div className="space-y-2 no-print">
+                <button
+                  type="button"
+                  onClick={() => setIsCommercialDeckOpen(true)}
+                  className="w-full inline-flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-emerald-300 bg-emerald-950/70 border border-emerald-800 rounded-lg hover:bg-emerald-900 transition-colors cursor-pointer text-left shadow-xs"
+                >
+                  <span>Apresentação Comercial em PDF (Institucional)</span>
+                  <FileDown className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                </button>
+
                 <a
                   href={PROJECT_METADATA.driveFolderUrl}
                   target="_blank"
@@ -730,8 +762,14 @@ export function App() {
         </div>
       </footer>
 
-      {/* FULL-SCREEN INTERACTIVE PITCH DECK MODAL */}
+      {/* FULL-SCREEN INTERACTIVE PITCH DECK MODAL (COM DADOS FINANCEIROS) */}
       <PitchDeckModal isOpen={isPitchModeOpen} onClose={() => setIsPitchModeOpen(false)} />
+
+      {/* FULL-SCREEN COMMERCIAL PRESENTATION MODAL & PDF GENERATOR (SEM DADOS FINANCEIROS / SEM PREÇO) */}
+      <CommercialPresentationModal
+        isOpen={isCommercialDeckOpen}
+        onClose={() => setIsCommercialDeckOpen(false)}
+      />
     </div>
   );
 }

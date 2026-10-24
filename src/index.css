@@ -25,7 +25,60 @@
 }
 
 @media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
   .no-print {
     display: none !important;
   }
+
+  /* Dedicated PDF print layout for commercial presentation */
+  body.printing-commercial {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body.printing-commercial * {
+    visibility: hidden;
+  }
+
+  body.printing-commercial .commercial-print-deck,
+  body.printing-commercial .commercial-print-deck * {
+    visibility: visible;
+  }
+
+  body.printing-commercial .commercial-print-deck {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .commercial-print-slide {
+    page-break-after: always;
+    break-after: page;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14mm 16mm 12mm 16mm;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  .commercial-print-slide:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
 }
+

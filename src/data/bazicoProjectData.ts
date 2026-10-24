@@ -77,6 +77,19 @@ export interface PitchSlide {
   originalPages: string;
 }
 
+export interface CommercialSlide {
+  id: number;
+  slideNumber: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  tagline: string;
+  highlights: { label: string; value: string; desc: string }[];
+  keyPoints: string[];
+  takeaway: string;
+  commercialNotes: string;
+}
+
 export const PROJECT_METADATA = {
   company: 'BAZICO TECNOLOGIA E CONSULTORIA LTDA',
   logoUrl: '/assets/bazico-logo.jpg',
@@ -903,3 +916,187 @@ export const PITCH_SLIDES: PitchSlide[] = [
     originalPages: 'Páginas 23, 24, 25, 26, 27, 28, 32 e 36 do documento original',
   },
 ];
+
+export const COMMERCIAL_DECK_SLIDES: CommercialSlide[] = [
+  {
+    id: 1,
+    slideNumber: '01 / 08',
+    category: 'Visão Institucional & Comercial',
+    title: 'BAZICO Tecnologia: Engenharia em Biogás, Biometano e Biofertilizantes',
+    subtitle: 'Apresentação institucional e comercial para implantação de plantas de valorização de resíduos orgânicos com tecnologia de ponta.',
+    tagline: 'Do Passivo Ambiental ao Ativo Energético Limpo e Sustentável',
+    highlights: [
+      { label: 'Experiência Global', value: '30 Anos', desc: 'Pioneirismo e maturidade biotecnológica' },
+      { label: 'Reatores em Operação', value: '350+', desc: 'Biodigestores CSTR industriais ativos' },
+      { label: 'Projetos Industriais', value: '500+', desc: 'Comissionamentos em mais de 25 setores' },
+      { label: 'Presença Internacional', value: '22 Países', desc: 'Plantas com certificação ISO' },
+    ],
+    keyPoints: [
+      'Solução definitiva para desvio integral de resíduos orgânicos de aterros sanitários e lixões urbanos.',
+      'Produção contínua de Biometano de alta pureza (>97% CH4, Padrão ANP 685) e Fertilizantes Orgânicos Classe "A".',
+      'Planta 100% autossuficiente: eletricidade, calor e combustível de frota supridos internamente.',
+      'Consórcio internacional liderado pela BAZICO Tecnologia em aliança com MM ENVIRO e JG Sette.',
+    ],
+    takeaway: 'A BAZICO entrega plantas industriais Turnkey com garantia contratual de performance e confiabilidade operacional de padrão mundial.',
+    commercialNotes: 'Destacar o pioneirismo de 30 anos da BAZICO e a solidez do consórcio internacional com centenas de plantas em operação comprovada.',
+  },
+  {
+    id: 2,
+    slideNumber: '02 / 08',
+    category: 'Diagnóstico Ambiental & Solução',
+    title: 'O Fim dos Aterros Sanitários: A Solução Definitiva BAZICO',
+    subtitle: 'Por que o modelo convencional de aterros está superado e como a rota biotecnológica CSTR encerra passivos ambientais.',
+    tagline: 'Economia Circular Real com Balanço Resíduo Zero',
+    highlights: [
+      { label: 'Desvio de Aterro', value: '100%', desc: 'Eliminação do envio de fração orgânica' },
+      { label: 'Emissões Fugitivas', value: 'Zero', desc: 'Circuito 100% estanque sem queima ociosa' },
+      { label: 'Controle de Odores', value: '100%', desc: 'Docas herméticas e biofiltros industriais' },
+      { label: 'Marco Legal PNRS', value: 'Conforme', desc: 'Atendimento integral à Lei 12.305/2010' },
+    ],
+    keyPoints: [
+      'Aterros sanitários geram passivos crônicos: chorume poluente para lençóis freáticos e emissões fugitivas de metano (CH4).',
+      'A tecnologia BAZICO realiza o processamento em circuito fechado sem chorume, sem odores e sem vetores de pragas.',
+      'Conformidade com a Política Nacional de Resíduos Sólidos (PNRS) e diretrizes municipais e corporativas de ESG.',
+      'Rastreabilidade total de cada carga recebida com emissão de certificados de destinação ambientalmente adequada.',
+    ],
+    takeaway: 'Transformamos o maior passivo de prefeituras e indústrias em uma operação industrial limpa, silenciosa e valorizadora.',
+    commercialNotes: 'Posicionar como resposta urgente e definitiva para municípios e indústrias que enfrentam o encerramento de lixões e saturação de aterros.',
+  },
+  {
+    id: 3,
+    slideNumber: '03 / 08',
+    category: 'Matéria-Prima & Logística',
+    title: 'Segurança de Suprimento: Mapeamento de 12 Polos Geradores',
+    subtitle: 'Metodologia de triagem e segregação na fonte para garantia de biomassa com pureza de 95% a 97,5%.',
+    tagline: 'Logística Dedicada, Rastreabilidade e Bombonas Herméticas',
+    highlights: [
+      { label: 'Capacidade Nominal', value: '280 t/dia', desc: 'Processamento contínuo 365 dias/ano' },
+      { label: 'Pureza da Biomassa', value: 'Até 97,5%', desc: 'Segregação técnica de contaminantes' },
+      { label: 'Polos Mapeados', value: '12 Setores', desc: 'Varejo, food service, CEASAs e indústrias' },
+      { label: 'Frota Limpa', value: '100% Biometano', desc: 'Caminhões abastecidos pelo gás da planta' },
+    ],
+    keyPoints: [
+      'Polos de alta concentração: Centrais de abastecimento (CEASAs), redes de supermercados, shoppings e restaurantes.',
+      'Polos institucionais e infraestrutura: Refeitórios industriais, portos, aeroportos internacionais e condomínios com coleta seletiva.',
+      'Programa de Parceria com Grandes Geradores unindo Tecnologia, Treinamento e fornecimento de recipientes herméticos.',
+      'Frota própria de coleta operada sem queima de diesel fóssil, impulsionada pelo biometano limpo gerado na usina.',
+    ],
+    takeaway: 'A segurança de abastecimento é garantida pela ampla diversificação em 12 setores econômicos independentes.',
+    commercialNotes: 'Ressaltar que a planta não fica vulnerável a nenhum fornecedor exclusivo e conta com logística própria dedicada.',
+  },
+  {
+    id: 4,
+    slideNumber: '04 / 08',
+    category: 'Engenharia & Arquitetura',
+    title: 'Engenharia CSTR Vertical: Eficiência Máxima e Autonomia',
+    subtitle: '3 Reatores CSTR Verticais com telemetria físico-química em tempo real (AVTR) e supervisão digital contínua.',
+    tagline: 'Tecnologia Proprietária de Biodigestão Aperfeiçoada por 30 Anos',
+    highlights: [
+      { label: 'Biodigestores', value: '3 Reatores CSTR', desc: 'Construção vertical compacta de alto rendimento' },
+      { label: 'Autonomia Energética', value: '100%', desc: 'Eletricidade e calor gerados na própria planta' },
+      { label: 'Telemetria AVTR', value: 'Tempo Real', desc: 'Monitoramento de pH, AGV e biogás 24/7' },
+      { label: 'Automação SCADA', value: 'Nível 4', desc: 'Operação digital com alarme preditivo' },
+    ],
+    keyPoints: [
+      'Configuração em 3 reatores verticais que viabiliza manutenções individuais programadas sem paralisar a planta.',
+      'Sistema patenteado de agitação central mecânica e recirculação contínua que elimina zonas mortas e crostas.',
+      'Telemetria AVTR proprietária: acompanhamento online de pH, ácidos graxos voláteis, temperatura e rendimento específico.',
+      'Aproveitamento térmico integral dos motogeradores para aquecimento dos reatores, assegurando autossuficiência absoluta.',
+    ],
+    takeaway: 'Robustez mecânica e controle microbiológico contínuo que asseguram disponibilidade operacional superior a 95% ao ano.',
+    commercialNotes: 'Demonstrar a superioridade dos reatores verticais: ocupam menos espaço, são mais seguros e têm eficiência microbiológica muito maior que lagoas.',
+  },
+  {
+    id: 5,
+    slideNumber: '05 / 08',
+    category: 'Processo Tecnológico',
+    title: 'Fluxo Tecnológico Integrado: Do Resíduo aos Produtos Nobres',
+    subtitle: 'Cinco etapas industriais sequenciais integradas sob rigoroso controle de qualidade e biossegurança.',
+    tagline: 'Processamento Mecânico, Bioquímico e Separação Fina',
+    highlights: [
+      { label: 'Etapas Integradas', value: '5 Módulos', desc: 'Da descompactação à expedição de produtos' },
+      { label: 'Despolpação Fina', value: 'TIETJEN', desc: 'Tecnologia alemã de separação de embalagens' },
+      { label: 'Upgrading de Biogás', value: 'Membranas', desc: 'Remoção seletiva de CO2 e H2S com pureza >97%' },
+      { label: 'Compressão Final', value: '250 bar', desc: 'Padrão automotivo e industrial imediato' },
+    ],
+    keyPoints: [
+      '1. Recepção e Triagem: Descarregamento em docas herméticas, moagem de alta vazão e remoção automática de plásticos e metais.',
+      '2. Biodigestão Anaeróbia: Digestão contínua em 3 reatores estanques com taxa de conversão orgânica otimizada.',
+      '3. Upgrading e Purificação: Dessulfurização catalítica e membranas poliméricas seletivas para enriquecimento do metano.',
+      '4. Compressão e Armazenamento: Sistemas industriais de compressão a 250 bar para carregamento de carretas feixe e frotas.',
+      '5. Linha de Fertilizantes: Prensas de parafuso e secagem para obtenção de biofertilizante sólido granulado e biofertilizante líquido.',
+    ],
+    takeaway: 'Um ciclo industrial limpo e padronizado que atende aos mais exigentes padrões da indústria de energia e agronegócio.',
+    commercialNotes: 'Evidenciar que cada módulo de processo utiliza componentes dos maiores fabricantes mundiais de biogás.',
+  },
+  {
+    id: 6,
+    slideNumber: '06 / 08',
+    category: 'Portfólio de Produtos',
+    title: 'Produtos Finais Certificados: Biometano e Fertilizantes Classe A',
+    subtitle: 'Substitutos ecológicos e de alta performance para combustíveis fósseis e fertilizantes químicos importados.',
+    tagline: 'Especificações Técnicas Rigorosas e Conformidade com Agências Reguladoras',
+    highlights: [
+      { label: 'Biometano Produzido', value: '14.952 Nm³/dia', desc: 'Substitui diretamente 15.000 L de diesel/dia' },
+      { label: 'Especificação do Gás', value: 'Padrão ANP 685', desc: 'Pureza de metano >97% isento de umidade' },
+      { label: 'Fertilizante Orgânico', value: '47 Ton/dia', desc: 'Classe "A" com registro no MAPA' },
+      { label: 'Descarbonização', value: 'RenovaBio', desc: 'Créditos ambientais rastreáveis (CBIOs)' },
+    ],
+    keyPoints: [
+      'Biometano Comprimido: 100% intercambiável com gás natural de gasodutos ou combustível imediato para frotas pesadas.',
+      'Redução de até 95% nas emissões de gases de efeito estufa em comparação com o diesel mineral fóssil.',
+      'Fertilizante Orgânico Composto Classe "A": Enriquecido com enxofre natural recuperado no processo de purificação do gás.',
+      'Condicionador de solo de liberação gradual: recupera a microbiota, eleva a CTC e diminui a dependência de adubos importados.',
+      'Ativo ESG de alto valor: cada metro cúbico e tonelada geram benefícios ambientais auditáveis para neutralização de pegada de carbono.',
+    ],
+    takeaway: 'Produtos com forte demanda industrial e agrícola que integram o saneamento urbano à transição energética e à regeneração do solo.',
+    commercialNotes: 'Destacar o alto padrão de pureza e a disponibilidade imediata para acordos comerciais de fornecimento contínuo.',
+  },
+  {
+    id: 7,
+    slideNumber: '07 / 08',
+    category: 'Consórcio & Fornecedores',
+    title: 'Alianças Globais de Engenharia e Fornecedores Homologados',
+    subtitle: 'Engenharia de precisão respaldada pelos fabricantes mais respeitados do mercado global de biogás e energia.',
+    tagline: 'Consórcio Internacional de Alta Engenharia com Garantia Integral',
+    highlights: [
+      { label: 'Engenharia de Processo', value: 'MM ENVIRO', desc: '350+ plantas e suporte técnico contínuo' },
+      { label: 'Construção & Montagem', value: 'JG Sette', desc: 'Engenharia civil e montagem industrial' },
+      { label: 'Compressão e GNC', value: 'GALILEO', desc: 'Referência global em compressão de gás' },
+      { label: 'Despolpação Mecânica', value: 'TIETJEN', desc: 'Tecnologia alemã de descompactação' },
+    ],
+    keyPoints: [
+      'MM ENVIRO Projects: Detalhamento de processo, dimensionamento termodinâmico e supervisão do comissionamento da usina.',
+      'JG Sette: Gestão de obras civis complexas, fundações especiais, estações de tratamento e montagem eletromecânica completa.',
+      'ISGEC Heavy Engineering: Caldeiraria pesada, digestores em aço especial e vasos de alta pressão certificados ASME.',
+      'GALILEO Technologies: Pacotes completos de compressão de biometano para alta pressão (250 bar) e estocagem.',
+      'SepraTek / Korea UTC Environment: Membranas de separação seletiva de última geração para enriquecimento de metano.',
+      'TIETJEN Mühlenbau: Equipamentos alemães de despolpação capazes de processar os resíduos orgânicos mais heterogêneos.',
+    ],
+    takeaway: 'A integração de tecnologias mundiais com a engenharia da BAZICO assegura que cada subsistema opere na sua máxima eficiência.',
+    commercialNotes: 'Ressaltar a segurança do cliente: nenhum equipamento central é improvisado; toda a planta é composta por marcas líderes mundiais.',
+  },
+  {
+    id: 8,
+    slideNumber: '08 / 08',
+    category: 'Credenciais & Contato',
+    title: 'Credenciais Corporativas & Contato Institucional da Diretoria',
+    subtitle: 'Histórico comprovado junto aos maiores grupos industriais do mundo e canal direto com a liderança da BAZICO.',
+    tagline: 'Prontos para Desenvolver e Operar o Seu Projeto de Biometano',
+    highlights: [
+      { label: 'Grandes Clientes', value: 'Marcas Globais', desc: 'PepsiCo, Cargill, Coca-Cola e SABMiller' },
+      { label: 'Certificações', value: 'ISO & Star Export', desc: 'Garantia de qualidade e auditoria' },
+      { label: 'Liderança', value: 'Lytton Medrado', desc: 'CEO da BAZICO Tecnologia' },
+      { label: 'Localização', value: 'São Paulo, BR', desc: 'Atendimento corporativo e institucional' },
+    ],
+    keyPoints: [
+      'Clientes atendidos com atestados técnicos: The Coca-Cola Company, PepsiCo, Cargill, SABMiller e outros conglomerados.',
+      'Modelos flexíveis de estruturação: EPC Turnkey (Engenharia, Suprimentos e Construção), Parcerias Público-Privadas (PPP) e BOT.',
+      'Disponibilidade imediata da diretoria executiva para reuniões comerciais, apresentações técnicas e vistorias.',
+      'Acesso ao acervo técnico completo com plantas de engenharia, memorial descritivo e laudos microbiológicos de biomassa.',
+    ],
+    takeaway: 'A BAZICO une experiência internacional consolidada à agilidade operacional no Brasil para viabilizar projetos de transição energética de padrão global.',
+    commercialNotes: 'Convidar os interlocutores para reunião com o CEO Lytton Medrado e a equipe técnica especializada.',
+  },
+];
+
