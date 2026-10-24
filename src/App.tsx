@@ -230,11 +230,12 @@ export function App() {
 
                   <button
                     type="button"
-                    onClick={() => window.print()}
+                    onClick={() => setIsCommercialDeckOpen(true)}
                     className="inline-flex items-center gap-1.5 px-3.5 py-3 text-xs font-mono text-slate-400 hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                    title="Exportar Apresentação Comercial completa em PDF"
                   >
-                    <Printer className="w-3.5 h-3.5" />
-                    Imprimir / PDF
+                    <Printer className="w-3.5 h-3.5 text-emerald-400" />
+                    Apresentação em PDF
                   </button>
                 </div>
               </div>

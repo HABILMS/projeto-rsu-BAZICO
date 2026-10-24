@@ -45,8 +45,23 @@ export const CommercialPresentationModal: React.FC<CommercialPresentationModalPr
       }
     };
 
+    const handleBeforePrint = () => {
+      document.body.classList.add('printing-commercial');
+    };
+    const handleAfterPrint = () => {
+      document.body.classList.remove('printing-commercial');
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
+      document.body.classList.remove('printing-commercial');
+    };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -55,10 +70,9 @@ export const CommercialPresentationModal: React.FC<CommercialPresentationModalPr
 
   const handlePrintPdf = () => {
     document.body.classList.add('printing-commercial');
-    window.print();
     setTimeout(() => {
-      document.body.classList.remove('printing-commercial');
-    }, 1000);
+      window.print();
+    }, 150);
   };
 
   return (
@@ -316,70 +330,70 @@ export const CommercialPresentationModal: React.FC<CommercialPresentationModalPr
       </div>
 
       {/* PRINT-ONLY CLEAN DECK (TARGET FOR WINDOW.PRINT -> SAVE AS PDF) */}
-      <div className="commercial-print-deck hidden">
+      <div className="commercial-print-deck">
         {COMMERCIAL_DECK_SLIDES.map((slide, idx) => (
           <div key={idx} className="commercial-print-slide">
             {/* Slide Header */}
             <div>
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-300">
-                <div className="flex items-center gap-3">
+              <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-300">
+                <div className="flex items-center gap-2.5">
                   <img
                     src={PROJECT_METADATA.logoUrl}
                     alt="BAZICO"
-                    className="h-10 w-auto object-contain"
+                    className="h-8 w-auto object-contain"
                   />
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block font-sans">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-900 block font-sans">
                       BAZICO TECNOLOGIA E CONSULTORIA LTDA
                     </span>
-                    <span className="text-[11px] font-mono text-emerald-800 block">
+                    <span className="text-[9.5px] font-mono text-emerald-800 block">
                       Apresentação Comercial & Institucional · {slide.category}
                     </span>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-xs font-mono font-bold text-slate-700 block">
+                  <span className="text-xs font-mono font-bold text-slate-800 block">
                     {slide.slideNumber}
                   </span>
-                  <span className="text-[10px] text-slate-500 block">
+                  <span className="text-[9px] text-slate-500 block">
                     Uso Comercial / Não Contém Valores Financeiros
                   </span>
                 </div>
               </div>
 
               {/* Title & Subtitle */}
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight leading-snug">
+              <h2 className="text-xl font-bold text-slate-900 tracking-tight leading-snug">
                 {slide.title}
               </h2>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed max-w-4xl">
+              <p className="mt-1 text-xs text-slate-600 leading-normal max-w-4xl">
                 {slide.subtitle}
               </p>
 
               {/* Tagline */}
-              <div className="mt-3 inline-block px-3 py-1 rounded bg-slate-100 text-slate-800 text-xs font-mono font-medium border border-slate-300">
+              <div className="mt-2 inline-block px-2.5 py-0.5 rounded bg-slate-100 text-slate-800 text-[9.5px] font-mono font-medium border border-slate-300">
                 {slide.tagline}
               </div>
 
               {/* Highlights 4-col strip */}
-              <div className="mt-6 grid grid-cols-4 gap-3">
+              <div className="mt-3 grid grid-cols-4 gap-2.5">
                 {slide.highlights.map((h, i) => (
-                  <div key={i} className="p-3.5 bg-slate-50 rounded-lg border border-slate-200">
-                    <div className="text-[10px] font-mono uppercase text-slate-500">{h.label}</div>
-                    <div className="text-xl font-bold font-mono text-emerald-800 mt-0.5">
+                  <div key={i} className="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                    <div className="text-[9px] font-mono uppercase text-slate-500">{h.label}</div>
+                    <div className="text-base font-bold font-mono text-emerald-800 mt-0.5">
                       {h.value}
                     </div>
-                    <div className="text-[10px] text-slate-600 mt-0.5 leading-tight">{h.desc}</div>
+                    <div className="text-[9px] text-slate-600 mt-0.5 leading-tight">{h.desc}</div>
                   </div>
                 ))}
               </div>
 
               {/* Key Commercial Points */}
-              <div className="mt-6 space-y-2.5">
+              <div className="mt-3 space-y-1.5">
                 {slide.keyPoints.map((pt, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-2.5 p-3 rounded-lg bg-white border border-slate-200 text-xs text-slate-800 leading-relaxed"
+                    className="flex items-start gap-2 p-2 rounded-lg bg-white border border-slate-200 text-[10.5px] text-slate-800 leading-snug"
                   >
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
                     <span>{pt}</span>
@@ -389,17 +403,17 @@ export const CommercialPresentationModal: React.FC<CommercialPresentationModalPr
             </div>
 
             {/* Slide Footer */}
-            <div className="mt-6 pt-3 border-t border-slate-300">
-              <div className="p-3 bg-emerald-50 rounded-lg border border-emerald-200 flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold uppercase text-emerald-900">
+            <div className="mt-3 pt-2 border-t border-slate-300">
+              <div className="p-2 bg-emerald-50 rounded-lg border border-emerald-200 flex items-center justify-between">
+                <span className="text-[9.5px] font-mono font-bold uppercase text-emerald-900">
                   Diferencial Competitivo:
                 </span>
-                <span className="text-xs font-medium text-emerald-950">
+                <span className="text-[11px] font-medium text-emerald-950">
                   {slide.takeaway}
                 </span>
               </div>
 
-              <div className="mt-3 flex items-center justify-between text-[10px] font-mono text-slate-500">
+              <div className="mt-2 flex items-center justify-between text-[9px] font-mono text-slate-500">
                 <span>
                   Consórcio Internacional: BAZICO · MM ENVIRO Projects · JG Sette
                 </span>
